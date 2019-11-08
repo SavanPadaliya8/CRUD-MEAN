@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400&display=swap" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        {{>header}}
+    </head>
+    <body>
+        <h3>Users List</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Password</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each usersDocs}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{email}}</td>
+                    <td>{{password}}</td>
+                    <th><a href="/edit/{{_id}}" class="btn btn-success" method="post">Edit</a></th>
+                    <form action="/delete/{{_id}}?newMethod=DELETE" method="POST">
+                        <th><button class="btn btn-danger" type="submit">Delete</button></th>
+                    </form>
+                    
+                </tr>
+                
+                {{/each}}
+        </table>
+    </body>
+</html>

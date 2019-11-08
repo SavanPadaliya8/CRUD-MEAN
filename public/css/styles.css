@@ -1,0 +1,32 @@
+header{
+    background-color: black;
+    height: 50px;
+    font-size: 20px;
+}
+.nav a{
+    color: white;
+    padding: 30px;
+    text-decoration: none;
+}
+
+.col-md-4{
+    text-align: right;
+}
+.form-control{
+    width: 50%;
+}
+
+form .row{
+    margin-bottom: 10px;
+}
+form{
+    font-size: 18px;
+}
+.table{
+    width: 80%;
+    margin: 20px auto;
+}
+h3{
+    text-align: center;
+    margin: 40px auto;
+}

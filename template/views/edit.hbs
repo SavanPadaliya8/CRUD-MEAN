@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400&display=swap" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        {{> header}}
+    </head>
+    <body>
+        {{#each usersDocs}}
+        <form class="data container" action="/edituser/{{_id}}" method="GET">
+            <br>
+            <br>
+                <div class="row">
+                    <div class="col-md-4">Name :</div>
+                    <div class="col-md-8"><input type="text" name="name" id="name" value={{name}} required></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">Email :</div>
+                    <div class="col-md-8"><input type="text" name="email" id="email" value={{email}} required></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">Password :</div>
+                    <div class="col-md-8"><input type="text" name="password" id="password" value={{password}} required></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-8"><input type="submit" name="submit"></div>
+                </div>
+        </form>
+        {{/each}}
+    </body>
+</html>
