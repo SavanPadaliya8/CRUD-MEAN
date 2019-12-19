@@ -1,0 +1,40 @@
+
+<form  class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <input type="text" name="name" class="form-control" [(ngModel)]="name" placeholder="Enter Name">
+      </div>
+      <div class="col-md-3">
+        <input type="email" name="email" class="form-control" [(ngModel)]="email" placeholder="Enter Email."> 
+      </div>
+      <div class="col-md-3">
+        <input type="text" name="mobile" class="form-control" [(ngModel)]="mobile" placeholder="Enter Mobile No.">
+      </div>
+      <div class="col-md-3">
+          <input *ngIf="editMode" value="Edit" (click)="editUser()" type="button" class="btn btn-info">
+          <input *ngIf="!editMode" value="Add" (click)="addUser()" type="button" class="btn btn-info">
+      </div>
+  </div>
+  <br>
+ </form>
+
+<table class="table container">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let users of Users">
+            <td>{{ users.name }}</td>
+            <td>{{ users.email }}</td>
+            <td>{{ users.mobile }}</td>
+            <td><input type="button" (click)="getUser(users._id)" class="btn btn-info" value="Edit"></td>
+            <td><input type="button" (click)="deleteUser(users._id)" class="btn btn-danger" value="Delete"></td>
+        </tr>
+      </tbody>
+  </table>

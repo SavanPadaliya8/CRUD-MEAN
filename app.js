@@ -5,7 +5,9 @@ const express = require('express')
 const userRoutes = require('./routes/userRoutes')
 const app = express()
 const methodOverride = require('method-override')
+const cors = require('cors')
 
+app.use(cors());
 app.use(express.json())
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'public')))
@@ -19,17 +21,15 @@ mongoose.connect('mongodb://localhost:27017/node-task', { useNewUrlParser: true 
 
 
 //Define path for Express
-const publicdirpath = path.join(__dirname, '../public')
-const viewspath = path.join(__dirname,'./template/views')
-const partialspath = path.join(__dirname, './template/partials')
+app.use(express.static(path.join(__dirname, 'clientPanel')))
 
 //Setup static directory to serve
-app.use(express.static(publicdirpath))
+// app.use(express.static(publicdirpath))
 
 //Setup handlebars engine and views location
-app.set('view engine', 'hbs')
-app.set('views', viewspath)
-hbs.registerPartials(partialspath)
+// app.set('view engine', 'hbs')
+// app.set('views', viewspath)
+// hbs.registerPartials(partialspath)
 
 app.use(methodOverride('newMethod'));
 
